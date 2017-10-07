@@ -36,7 +36,7 @@
         {
             "apiVersion": "[variables('apiVersion')]",
             "type": "Microsoft.Network/virtualNetworks",
-            "name": "[variables('AbCust')]",
+            "name": "[variables('VnetName')]",
             "location": "[resourceGroup().location]",
             "properties": {
                 "addressSpace": {
