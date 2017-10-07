@@ -34,7 +34,7 @@
     },
     "variables": {
         "apiVersion": "2015-06-15",
-	"AbCust": "[take(parameters('Customer Name'),3)]",
+	"AbCust": "[substring(parameters('Customer Name'), 0, 3)]",
 	#"vnetName": "[concat(variables('AbCust'),'-vnet')]"
     },
     "resources": [
