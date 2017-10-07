@@ -2,14 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vnetName": {
-            "type": "string",
-            "defaultValue": "EUVNet2",
-            "metadata": {
-                "description": "VNet name"
-            }
-        },
-        "CustName": {
+            "Customer Name": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -41,13 +34,15 @@
        
     },
     "variables": {
-        "apiVersion": "2015-06-15"
+        "apiVersion": "2015-06-15",
+	"AbCust": "[take(parameters('Customer Name'),3]"
+	"vnetName": "[concat(parameters('AbCust'),'-vnet']",
     },
     "resources": [
         {
             "apiVersion": "[variables('apiVersion')]",
             "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('vnetName')]",
+            "name": "[variables('vnetName')]",
             "location": "[resourceGroup().location]",
             "properties": {
                 "addressSpace": {
