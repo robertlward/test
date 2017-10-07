@@ -30,11 +30,12 @@
                 "description": "Subnet 1 Name"
             }
         }
+	
     },
     "variables": {
         "apiVersion": "2015-06-15",
-	"AbCust": "[take(parameters('Customer Name'),3]"
-	"vnetName": "[concat(parameters('AbCust'),'-vnet']",
+	"AbCust": "[take(parameters('Customer Name'),3)]"
+	"vnetName": "[concat(parameters('AbCust'),'-vnet')]",
     },
     "resources": [
         {
