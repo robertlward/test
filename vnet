@@ -22,20 +22,15 @@
             "metadata": {
                 "description": "Address prefix"
             }
-        },
-        "subnet1Name": {
-            "type": "string",
-            "defaultValue": "Production2",
-            "metadata": {
-                "description": "Subnet 1 Name"
-            }
+        
         }
 	
     },
     "variables": {
         "apiVersion": "2015-06-15",
 	"AbCust": "[substring(parameters('Customer Name'), 0, 3)]",
-	"VnetName": "[toLower(concat(variables('AbCust','-vnet')))]"
+	"VnetName": "[toLower(concat(variables('AbCust','-vnet')))]",
+	"SubNetName": "[toLower(concat(variables('AbCust','-sn1')))]",
 	    },
     "resources": [
         {
@@ -51,7 +46,7 @@
                 },
                 "subnets": [
                     {
-                        "name": "[parameters('subnet1Name')]",
+                        "name": "[parameters('subnetName')]",
                         "properties": {
                             "addressPrefix": "[parameters('subnet1Prefix')]"
                         }
