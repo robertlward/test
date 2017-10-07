@@ -9,6 +9,13 @@
                 "description": "VNet name"
             }
         },
+        "CustName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Customer name"
+            }
+	},
         
         "subnet1Prefix": {
             "type": "string",
