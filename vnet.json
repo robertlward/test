@@ -34,7 +34,8 @@
     "variables": {
             "AbCust": "[substring(parameters('Customer Name'), 0, 3)]",
 	        "VnetName": "[toLower(concat(variables('AbCust'),'-vnet'))]",
-	        "SubNetName": "[toLower(concat(variables('AbCust'),'-sn1'))]"
+            "SubNetName": "[toLower(concat(variables('AbCust'),'-sn1'))]",
+            "AvsName": "[toLower(concat(variables('AbCust'),'-avs'))]"
 	    },
     "resources": [
         {
@@ -63,6 +64,20 @@
                     }
                 ]
             }
-        }
+        },
+        {
+            "type": "Microsoft.Compute/availabilitySets",
+            "sku": {
+                "name": "Aligned"
+            },
+            "name": "[variables('AvsName')]",
+            "apiVersion": "2017-06-01",
+            "location": "[resourceGroup().location]",
+            "tags": {},
+            "properties": {
+                "platformUpdateDomainCount": "2",
+                "platformFaultDomainCount": "5",
+                "virtualMachines": []
+            }
     ]
 }
