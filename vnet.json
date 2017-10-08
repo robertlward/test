@@ -1,0 +1,59 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    	"Customer Name": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Customer name"
+            }
+	},
+        "subnet1Prefix": {
+            "type": "string",
+            "defaultValue": "192.168.11.0/25",
+            "metadata": {
+                "description": "Subnet 1 Prefix"
+            }
+        },
+	"vnetAddressPrefix": {
+            "type": "string",
+            "defaultValue": "192.168.11.0/24",
+            "metadata": {
+                "description": "Address prefix"
+            }
+        
+        }
+	
+    },
+    "variables": {
+        "apiVersion": "2015-06-15",
+	"AbCust": "[substring(parameters('Customer Name'), 0, 3)]",
+	"VnetName": "[toLower(concat(variables('AbCust','-vnet')))]",
+	"SubNetName": "[toLower(concat(variables('AbCust','-sn1')))]",
+	    },
+    "resources": [
+        {
+            "apiVersion": "[variables('apiVersion')]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[variables('VnetName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('vnetAddressPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('SubNetName')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnet1Prefix')]"
+                        }
+                    }
+                    
+                ]
+            }
+        }
+    ]
+}
