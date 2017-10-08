@@ -9,18 +9,18 @@
                 "description": "Customer name"
             }
 	},
-        "subnet1Prefix": {
+        "IP address space": {
             "type": "string",
-            "defaultValue": "192.168.11.0/25",
+            "defaultValue": "10.0.0.0/8",
             "metadata": {
-                "description": "Subnet 1 Prefix"
+                "description": "IP address space"
             }
-        },
-	"vnetAddressPrefix": {
+    },
+	    "Subnet": {
             "type": "string",
-            "defaultValue": "192.168.11.0/24",
+            "defaultValue": "10.1.0.0/24",
             "metadata": {
-                "description": "Address prefix"
+                "description": "Subnet"
             }
         
         }
@@ -40,14 +40,14 @@
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
-                        "[parameters('vnetAddressPrefix')]"
+                        "[parameters('IP address space')]"
                     ]
                 },
                 "subnets": [
                     {
                         "name": "[variables('SubNetName')]",
                         "properties": {
-                            "addressPrefix": "[parameters('subnet1Prefix')]"
+                            "addressPrefix": "[parameters('Subnet')]"
                         }
                     }
                     
