@@ -72,7 +72,7 @@
             },
             "name": "[variables('AvsName')]",
             "apiVersion": "2017-03-30",
-            "location": "[resourceGroup().location]",
+            "location": "westeurope",
             "tags": {},
             "properties": {
                 "platformUpdateDomainCount": 2,
