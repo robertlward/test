@@ -28,8 +28,8 @@
     },
     "variables": {
     "AbCust": "[substring(parameters('Customer Name'), 0, 3)]",
-	"VnetName": "[toLower(concat(variables('AbCust','-vnet')))]",
-	"SubNetName": "[toLower(concat(variables('AbCust','-sn1')))]"
+	"VnetName": "[toLower(concat(variables('AbCust'),'-vnet'))]",
+	"SubNetName": "[toLower(concat(variables('AbCust'),'-sn1'))]"
 	    },
     "resources": [
         {
