@@ -27,14 +27,12 @@
 	
     },
     "variables": {
-    "apiVersion": "[2017-06-01]",
-	"AbCust": "[substring(parameters('Customer Name'), 0, 3)]",
+    "AbCust": "[substring(parameters('Customer Name'), 0, 3)]",
 	"VnetName": "[toLower(concat(variables('AbCust','-vnet')))]",
 	"SubNetName": "[toLower(concat(variables('AbCust','-sn1')))]"
 	    },
     "resources": [
         {
-            "apiVersion": "[variables('apiVersion')]",
             "type": "Microsoft.Network/virtualNetworks",
             "name": "[variables('VnetName')]",
             "location": "[resourceGroup().location]",
