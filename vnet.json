@@ -22,8 +22,13 @@
             "metadata": {
                 "description": "Subnet"
             }
-        
-        }
+    },
+        "Gateway Subnet": {
+                "type": "string",
+                "defaultValue": "10.2.0.0/24",
+                "metadata": {
+                    "description": "Gateway Subnet"
+            }   
 	
     },
     "variables": {
