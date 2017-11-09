@@ -71,7 +71,7 @@
                 "name": "Aligned"
             },
             "name": "[variables('AvsName')]",
-            "apiVersion": "2017-03-30",
+            "apiVersion": "2016-04-30-preview",
             "location": "westeurope",
             "tags": {},
             "properties": {
